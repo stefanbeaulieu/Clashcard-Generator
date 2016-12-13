@@ -4,7 +4,7 @@ Create a flashcard app.
 
 ### Task List
 
-- [ ] Create API that allows users to create two types of flashcards
+- [ ] User must create API that allows users to create two types of flashcards
 - Basic Flash Cards
     - front ("Who was the first president of the United States?")
     - back ("George Washington").
@@ -17,10 +17,10 @@ Create a flashcard app.
 
 ### Pseudocode
 
-// create BasicFlashcard constructor
-    // accepts if front / backend arguments
-// create ClozeFlashcard constructor
-    // accepts if text / cloze arguments
+    1. user create BasicFlashcard constructor
+        1. accepts if front (question) / back (answer) arguments
+    2. create ClozeFlashcard constructor
+        1. accepts if partial text("... text here") / cloze ("full on text here") arguments
 
 #### Instructions
 

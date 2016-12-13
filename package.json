@@ -1,0 +1,24 @@
+{
+  "name": "clashcard-generator",
+  "version": "1.0.0",
+  "description": "Flashcard Simulator ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stefanbeaulieu/Clashcard-Generator.git"
+  },
+  "author": "Stefan Beaulieu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stefanbeaulieu/Clashcard-Generator/issues"
+  },
+  "homepage": "https://github.com/stefanbeaulieu/Clashcard-Generator#readme",
+  "dependencies": {
+    "inquirer": "^2.0.0",
+    "prompt": "^1.0.0",
+    "require": "^2.4.20"
+  }
+}
