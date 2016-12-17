@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/stefanbeaulieu/Clashcard-Generator#readme",
   "dependencies": {
+    "fs": "0.0.1-security",
     "inquirer": "^2.0.0",
     "prompt": "^1.0.0",
     "require": "^2.4.20"
