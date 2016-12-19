@@ -1,4 +1,1 @@
-
-Cloze Text: test 1Text: testttt 1
-Cloze Text: test 2Text: answer 2
-Cloze Text: test 3Text: answer 3
+{"cloze":"George Washington","phrase":"was the first president of the United States."}

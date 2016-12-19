@@ -52,8 +52,9 @@ if (p1 === undefined) {
     var handleQuestionResponse = function(answers) {
         var newQuestion = new Basic(answers.question, answers.answer);
         newQuestion.printInfo();
-        questions.push(newQuestion);
-        fs.appendFile('basicflashcard.txt', "\nFront of Card: " + answers.question + " Back of Card: " + answers.answer);
+        var newQuestionJSON = JSON.stringify(newQuestion);
+        questions.push(newQuestionJSON);
+        fs.appendFile('basicflashcard.txt', newQuestionJSON + "\n");
 
         // Checks to see if user wanted to input more than one flash card at a time
         return inquirer.prompt([{
@@ -110,8 +111,9 @@ if (p1 === undefined) {
     var handleClozeResponse = function(clozeAnswers) {
         var newClozeQuestion = new Cloze(clozeAnswers.cloze, clozeAnswers.phrase);
         newClozeQuestion.printClozeInfo();
-        clozeQuestions.push(newClozeQuestion);
-        fs.appendFile('clozeflashcard.txt', "\nCloze Text: " + clozeAnswers.cloze + "Text: " + clozeAnswers.phrase);
+        var newClozeQuestionJSON = JSON.stringify(newClozeQuestion);
+        clozeQuestions.push(newClozeQuestionJSON);
+        fs.appendFile('clozeflashcard.txt', newClozeQuestionJSON + "\n");
 
         // Checks to see if user wanted to input more than one flash card at a time
         return inquirer.prompt([{
