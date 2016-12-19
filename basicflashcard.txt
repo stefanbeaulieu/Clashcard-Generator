@@ -1,5 +1,3 @@
 
-Question: question 1 Answer: question 2
-Question: question 2 Answer: ansswer 2
-Question: question 3 Answer: answer 3
-Question: question 4 Answer: answer 4[object Object]
+Front of Card: Who was the first Present of the Unites States of America? Back of Card: George Washington
+Front of Card: Testing 1 Back of Card: Testing Answer 1

@@ -6,7 +6,7 @@
 var inquirer = require('inquirer');
 var fs = require('fs');
 var Basic = require("./basicflashcard");
-// var Cloze = require('clozeflashcard')
+var Cloze = require('./clozeflashcard')
 
 
 
@@ -15,7 +15,7 @@ var Basic = require("./basicflashcard");
  **********************/
 var p1 = process.argv[2];
 var questions = [];
-var clozequestions = [];
+var clozeQuestions = [];
 
 
 
@@ -96,54 +96,54 @@ if (p1 === undefined) {
     console.log('You chose to make a Cloze flashcard!');
 
     // Creating user prompts to creat flash cards
-    var questionPrompts = [{
+    var clozeQuestionPrompts = [{
         type: "input",
         name: "cloze",
         message: "What would you like hidden (Cloze)?"
     }, {
         type: "input",
-        name: "text",
+        name: "phrase",
         message: "What is the text of the card to finish the question?"
     }];
 
     // handle the first repsonse input from the user
-    var handleClozeResponse = function(answers) {
-        var newQuestion = new Cloze(answers.cloze, answers.text);
-        newQuestion.printInfo();
-        clozequestions.push(newQuestion);
-        fs.appendFile('clozeflashcard.txt', "\nCloze Text: " + answers.cloze + "Text: " + answers.text);
+    var handleClozeResponse = function(clozeAnswers) {
+        var newClozeQuestion = new Cloze(clozeAnswers.cloze, clozeAnswers.phrase);
+        newClozeQuestion.printClozeInfo();
+        clozeQuestions.push(newClozeQuestion);
+        fs.appendFile('clozeflashcard.txt', "\nCloze Text: " + clozeAnswers.cloze + "Text: " + clozeAnswers.phrase);
 
         // Checks to see if user wanted to input more than one flash card at a time
         return inquirer.prompt([{
-            name: "another",
-            message: "add another?",
+            name: "anotherCloze",
+            message: "Add another Cloze Card?",
             type: "confirm",
             default: true
         }]);
     };
 
     // handler for multiple repsonses from user
-    var handleAnotherClozeResponse = function(cont) {
-        if (cont.another) {
-            promptForQuestion();
+    var handleAnotherClozeResponse = function(cont2) {
+        if (cont2.anotherCloze) {
+            promptForClozeQuestion();
         } else {
             console.log("Number of Flashcards added to database: " + questions.length + ".");
         }
     };
 
     // error checker and response given
-    var handleClozeError = function(err) {
+    var handleClozeError = function() {
         console.log("There has been an error.");
     };
 
     // compiles all user input
-    var promptForQuestion = function() {
-        inquirer.prompt(questionPrompts)
+    var promptForClozeQuestion = function() {
+        inquirer.prompt(clozeQuestionPrompts)
             .then(handleClozeResponse, handleClozeError)
             .then(handleAnotherClozeResponse, handleClozeError);
     };
 
-    promptForQuestion();
+    promptForClozeQuestion();
 
 } else {
     console.log('Please input command either "Basic" or "Cloze" to select the type of flash card you would like to save.');

@@ -1,11 +1,13 @@
 // Constructor used to create Cloze Flashcard
-function Cloze(cloze, text) {
+var fs = require('fs');
+
+function Cloze(cloze, phrase) {
     this.cloze = cloze;
-    this.text = text;
+    this.phrase = phrase;
 }
 
-Cloze.prototype.printInfo = function() {
-    console.log("Cloze: " + this.cloze + "\ntext: " + this.text + "\nThis card has been added to the database!");
+Cloze.prototype.printClozeInfo = function() {
+    console.log("Cloze: " + this.cloze + "\nPhrase: " + this.phrase + "\nThis card has been added to the database!");
     // fs.appendFile('clozeflashcard.txt', "\ncloze: " + this.cloze + " text: " + this.text);
 };
 
